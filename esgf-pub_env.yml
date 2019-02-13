@@ -74,7 +74,7 @@ dependencies:
     - cf-python==2.3.2
     - cftime==1.0.3.4
     - decorator==4.3.2
-    - esgcet==3.6.0-a2
+    - esgcet==3.5.11
     - esgconfigparser==0.1.17
     - esgf-pyclient==0.2.1
     - esgfpid==0.7.12
