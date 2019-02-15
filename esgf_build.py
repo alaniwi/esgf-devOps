@@ -106,7 +106,11 @@ def clone_repo(repo, repo_directory):
 
 def list_branches(repo_handle):
     """List all branches for a repo."""
-    return [repo.name for repo in repo_handle.branches]
+    repo_handle.remotes[0].fetch()
+    remote_branches = [str(remote_branch.split("/")[1]) for remote_branch in repo_handle.git.branch('-r').split() if "origin" in remote_branch]
+    local_branches = [repo.name for repo in repo_handle.branches]
+    all_branches = set().union(remote_branches, local_branches)
+    return all_branches
 
 
 def update_all(branch, repo_directory, build_list):
